@@ -53,8 +53,8 @@ def parse_arguments():
                         help="saved state for discriminator optimizer")
 
     parser.add_argument("--images_dir", action="store", type=str,
-                        # default="../data/celeba",
-                        default=os.environ['SM_CHANNEL_TRAINING'],
+                        default="../jpg",
+#                         default=os.environ['SM_CHANNEL_TRAINING'],
                         help="path for the images directory")
 
     parser.add_argument("--folder_distributed", action="store", type=bool,
@@ -66,13 +66,13 @@ def parse_arguments():
                         help="whether to randomly mirror the images during training")
 
     parser.add_argument("--sample_dir", action="store", type=str,
-                        # default="samples/1/",
-                        default=os.environ['SM_MODEL_DIR'],
+                        default="samples/1/",
+#                         default=os.environ['SM_MODEL_DIR'],
                         help="path for the generated samples directory")
 
     parser.add_argument("--model_dir", action="store", type=str,
-                        # default="models/1/",
-                        default=os.environ['SM_MODEL_DIR'],
+                        default="models/1/",
+#                         default=os.environ['SM_MODEL_DIR'],
                         help="path for saved models directory")
 
     parser.add_argument("--loss_function", action="store", type=str,

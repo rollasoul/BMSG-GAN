@@ -68,11 +68,17 @@ def get_image(gen, point):
     images = [adjust_dynamic_range(image) for image in images]
     images = progressive_upscaling(images)
     # discard 128_x_128 resolution (temporarily)
-    images = images[:-2] + images[-1:]
+#     images = images[:-2] + images[-1:]
+    images = images[-1:]
     images = list(map(lambda x: x.squeeze(dim=0), images))
+#     image = make_grid(
+#         images,
+#         nrow=int(ceil(sqrt(len(images)))),
+#         padding=0
+#     )
     image = make_grid(
         images,
-        nrow=int(ceil(sqrt(len(images)))),
+        nrow=int(1),
         padding=0
     )
     return image.cpu().numpy().transpose(1, 2, 0)
